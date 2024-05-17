@@ -165,7 +165,7 @@ closeModalBtn.addEventListener("click", function () {
 filters.addEventListener("click", function (event) {
   if (event.target.classList.contains("filter-btn")) {
     filterList.style.display =
-      filterList.style.display === "block" ? "none" : "block";
+      filterList.style.display === "flex" ? "none" : "flex";
   }
 });
 

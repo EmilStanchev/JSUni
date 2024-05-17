@@ -13,7 +13,7 @@ header {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+    grid-template-columns: repeat(3, 1fr); 
     grid-gap: 20px;
     padding: 20px;
 }
@@ -29,6 +29,9 @@ header {
     width: 100%;
     height: auto;
     display: block;
+}
+.img-item:hover{
+    cursor: pointer;
 }
 
 .filter-btn {
@@ -95,4 +98,28 @@ header {
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
+}
+.button-container {
+    display: flex;
+    text-align: center;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    background-color: #444;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.button-container button:hover {
+    background-color: #fff;
+    color: #444;
+    border-color: #444;
 }
