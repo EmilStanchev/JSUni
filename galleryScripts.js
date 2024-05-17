@@ -21,8 +21,9 @@ const images = [
     category: "nature",
   },
   {
-    url: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715817600&semt=ais_user",
-    category: "nature",
+    url: "https://images.pexels.com/photos/163848/road-mountains-sunset-path-163848.jpeg?cs=srgb&dl=pexels-pixabay-163848.jpg&fm=jpg",
+
+    category: "road",
   },
   {
     url: "https://c1.wallpaperflare.com/preview/351/83/679/sparrow-animal-portrait-bird-close.jpg",

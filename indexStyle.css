@@ -35,13 +35,21 @@ header {
 }
 
 .filter-btn {
+    padding: 10px 20px;
     background-color: #444;
     color: #fff;
-    border: none;
-    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
 }
-
+.filter-btn:hover{
+    background-color: #fff;
+    color: #444;
+    border-color: #444;
+}
 .filter-list {
     display: none;
     gap: 10%;
