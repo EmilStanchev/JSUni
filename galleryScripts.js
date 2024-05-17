@@ -1,6 +1,11 @@
 const gallery = document.getElementById("gallery");
 const filters = document.getElementById("filters");
 const filterList = document.getElementById("filter-list");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+const closeModalBtn = document.querySelector(".close");
+const showLessBtn = document.getElementById("showLess");
+const showMoreBtn = document.getElementById("showMore");
 
 const images = [
   {
@@ -88,16 +93,28 @@ function displayImages(images) {
       gallery.appendChild(imgItem);
     }
   });
+}
+
+function displayImages(images) {
+  gallery.innerHTML = "";
+  images.forEach((image, index) => {
+    if (index < maxImagesToShow) {
+      const imgItem = document.createElement("div");
+      imgItem.classList.add("img-item");
+      imgItem.innerHTML = `<img src="${image.url}" alt="${image.category}">`;
+      imgItem.querySelector("img").addEventListener("click", function () {
+        showModal(image.url);
+      });
+      gallery.appendChild(imgItem);
+    }
+  });
 
   if (images.length > maxImagesToShow) {
-    const showMoreBtn = document.createElement("button");
-    showMoreBtn.textContent = "Show More";
-    showMoreBtn.classList.add("show-more-btn");
-    showMoreBtn.addEventListener("click", function () {
-      displayAllImages(images);
-      showMoreBtn.style.display = "none";
-    });
-    gallery.appendChild(showMoreBtn);
+    showMoreBtn.style.display = "block";
+    showLessBtn.style.display = "none";
+  } else {
+    showMoreBtn.style.display = "none";
+    showLessBtn.style.display = "none";
   }
 }
 
@@ -107,20 +124,26 @@ function displayAllImages(images) {
     const imgItem = document.createElement("div");
     imgItem.classList.add("img-item");
     imgItem.innerHTML = `<img src="${image.url}" alt="${image.category}">`;
+    imgItem.querySelector("img").addEventListener("click", function () {
+      showModal(image.url);
+    });
     gallery.appendChild(imgItem);
   });
 
-  const showLessBtn = document.createElement("button");
-  showLessBtn.textContent = "Show Less";
-  showLessBtn.classList.add("show-less-btn");
-  const showMoreBtn = document.getElementsByClassName("show-more-btn");
-  showLessBtn.addEventListener("click", function () {
-    displayImages(images.slice(0, maxImagesToShow));
-    showMoreBtn.style.display = "block";
-    showLessBtn.style.display = "none";
-  });
-  gallery.appendChild(showLessBtn);
+  showMoreBtn.style.display = "none";
+  showLessBtn.style.display = "block";
 }
+
+showMoreBtn.addEventListener("click", () => {
+  displayAllImages(images);
+  showMoreBtn.style.display === "block" ? "none" : "block";
+  showMoreBtn.style.display === "none" ? "block" : "none";
+});
+showLessBtn.addEventListener("click", function () {
+  displayImages(images.slice(0, maxImagesToShow));
+  showMoreBtn.style.display = "block";
+  showLessBtn.style.display = "none";
+});
 
 function filterImages(category) {
   const filteredImages =
@@ -130,16 +153,27 @@ function filterImages(category) {
   displayImages(filteredImages);
 }
 
+function showModal(url) {
+  modal.style.display = "flex";
+  modalImg.src = url;
+}
+
+closeModalBtn.addEventListener("click", function () {
+  modal.style.display = "none";
+});
+
 filters.addEventListener("click", function (event) {
   if (event.target.classList.contains("filter-btn")) {
     filterList.style.display =
-      filterList.style.display === "flex" ? "none" : "flex";
+      filterList.style.display === "block" ? "none" : "block";
   }
 });
 
 filterList.addEventListener("click", function (event) {
-  if (event.target.tagName === "LI") {
-    const category = event.target.getAttribute("data-filter");
+  if (event.target.tagName === "LI" || event.target.tagName === "I") {
+    const category =
+      event.target.getAttribute("data-filter") ||
+      event.target.parentElement.getAttribute("data-filter");
     filterList.style.display = "none";
     filterImages(category);
   }
