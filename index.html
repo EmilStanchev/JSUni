@@ -6,10 +6,12 @@
     <title>Gallery Website</title>
     <link rel="stylesheet" href="indexStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">  
+
 
 </head>
 <body>
-    <header>
+    <div>
         <h1>Gallery Website</h1>
         <div id="filters">
             <button class="filter-btn" data-filter="all">Filter</button>
@@ -31,7 +33,7 @@
                 <li data-filter="birds"><i class="custom-icon fas fa-dove"></i> Birds</li>
             </ul>
         </div>
-    </header>
+    </div>
     <div id="gallery" class="gallery"></div>
     <div class="button-container">
         <button id="showMore" style="display: block;">Show more</button>
@@ -41,8 +43,13 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <img id="modal-img" src="" alt="Full Image">
+            <div class="details">
+                <p id="modal-date"></p>
+                <p id="modal-camera"></p>
+            </div>
         </div>
     </div>
+
     <script src="galleryScripts.js"></script>
 </body>
 </html>

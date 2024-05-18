@@ -13,9 +13,25 @@ header {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(1, 1fr); 
     grid-gap: 20px;
     padding: 20px;
+}
+@media (min-width: 640px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (min-width: 768px) { 
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) { 
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .img-item {
@@ -88,14 +104,20 @@ header {
 .modal-content {
     position: relative;
     margin: auto;
-    padding: 20px;
     max-width: 80%;
-    max-height: 80%;
+    border:2px blue solid;
+    max-height: 100%;
 }
 
+.details{
+    background-color: black;
+    color:wheat;
+    
+}
 .modal-content img {
+    border: 2px red solid;
     width: 100%;
-    height: auto;
+    height: 80%;
 }
 
 .close {
