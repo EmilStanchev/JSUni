@@ -1,6 +1,4 @@
 const gallery = document.getElementById("gallery");
-const filters = document.getElementById("filters");
-const filterList = document.getElementById("filter-list");
 
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
@@ -27,7 +25,7 @@ const images = [
   {
     url: "https://www.shutterstock.com/image-photo/beauty-north-america-alaska-picturesque-600nw-374734084.jpg",
     category: "nature",
-    date: "2023-03-20",
+    date: "2024-05-18",
     camera: "Sony Alpha a7R IV",
   },
   {
@@ -126,19 +124,14 @@ const maxImagesToShow = 6;
 
 function displayImages(images) {
   gallery.innerHTML = "";
-  images.forEach((image, index) => {
-    if (index < maxImagesToShow) {
-      const imgItem = document.createElement("div");
-      imgItem.classList.add("img-item");
-      imgItem.innerHTML = `<img src="${image.url}" alt="${image.category}">`;
-      gallery.appendChild(imgItem);
-    }
-  });
-}
-
-function displayImages(images) {
-  gallery.innerHTML = "";
-  images.forEach((image, index) => {
+  console.log(images?.length);
+  if (images?.length === 0) {
+    const infoText = document.createElement("p");
+    infoText.innerHTML = "There aren`t images for that filter";
+    infoText.classList.add("text-black", "w-full", "text-xl");
+    gallery.appendChild(infoText);
+  }
+  images?.forEach((image, index) => {
     if (index < maxImagesToShow) {
       const imgItem = document.createElement("div");
       imgItem.classList.add("img-item");
@@ -161,7 +154,8 @@ function displayImages(images) {
 
 function displayAllImages(images) {
   gallery.innerHTML = "";
-  images.forEach((image) => {
+
+  images?.forEach((image) => {
     const imgItem = document.createElement("div");
     imgItem.classList.add("img-item");
     imgItem.innerHTML = `<img src="${image.url}" alt="${image.category}">`;
@@ -186,13 +180,13 @@ showLessBtn.addEventListener("click", function () {
   showLessBtn.style.display = "none";
 });
 
-function filterImages(category) {
-  const filteredImages =
-    category === "all"
-      ? images
-      : images.filter((image) => image.category === category);
-  displayImages(filteredImages);
-}
+// function filterImages(category) {
+//   const filteredImages =
+//     category === "all"
+//       ? images
+//       : images.filter((image) => image.category === category);
+//   displayImages(filteredImages);
+// }
 
 function showModal(url, date, camera) {
   modal.style.display = "flex";
@@ -205,21 +199,21 @@ closeModalBtn.addEventListener("click", function () {
   modal.style.display = "none";
 });
 
-filters.addEventListener("click", function (event) {
-  if (event.target.classList.contains("filter-btn")) {
-    filterList.style.display =
-      filterList.style.display === "flex" ? "none" : "flex";
-  }
-});
+// filters.addEventListener("click", function (event) {
+//   if (event.target.classList.contains("filter-btn")) {
+//     filterList.style.display =
+//       filterList.style.display === "flex" ? "none" : "flex";
+//   }
+// });
 
-filterList.addEventListener("click", function (event) {
-  if (event.target.tagName === "LI" || event.target.tagName === "I") {
-    const category =
-      event.target.getAttribute("data-filter") ||
-      event.target.parentElement.getAttribute("data-filter");
-    filterList.style.display = "none";
-    filterImages(category);
-  }
-});
+// filterList.addEventListener("click", function (event) {
+//   if (event.target.tagName === "LI" || event.target.tagName === "I") {
+//     const category =
+//       event.target.getAttribute("data-filter") ||
+//       event.target.parentElement.getAttribute("data-filter");
+//     filterList.style.display = "none";
+//     filterImages(category);
+//   }
+// });
 
 displayImages(images);

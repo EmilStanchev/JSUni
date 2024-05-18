@@ -11,8 +11,38 @@
 
 </head>
 <body>
-    <div>
-        <h1>Gallery Website</h1>
+    <div
+    id="home"
+    class="h-screen bg-center bg-no-repeat bg-cover flex items-center justify-center"
+    style="background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/1df24b38430631.56068dde6f2ce.jpg);"
+  >
+   
+    <div class="text-white text-center">
+      <h1 class="text-5xl font-bold mb-4 text-green-300 ">
+        Welcome to Vision Vault
+      </h1>
+      <div class="flex items-center justify-center mb-4">
+        <input
+          type="date"
+          id="dateFilter"
+          class="bg-green-100 text-green-800 py-2 px-4 rounded-md mr-2"
+          placeholder="Select date"
+        />
+        <button
+          id="search-button"
+          class="bg-green-100 text-[#f59e0b] text-xl py-2 px-4 flex items-center"
+        >
+        <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </div>
+      <a
+        class="bg-green-500 text-white py-2 px-4 rounded-full "
+        text="Plan you next trip"
+        href="#gallery"
+      >Start searching </a>
+    </div>
+  </div>
+    <div class="filter-header">
         <div id="filters">
             <button class="filter-btn" data-filter="all">Filter</button>
             <ul id="filter-list" class="filter-list">
@@ -51,5 +81,7 @@
     </div>
 
     <script src="galleryScripts.js"></script>
+    <script src="filter.js"></script>
+
 </body>
 </html>
