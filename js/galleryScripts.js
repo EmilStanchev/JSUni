@@ -4,6 +4,7 @@ const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const modalDate = document.getElementById("modal-date");
 const modalCamera = document.getElementById("modal-camera");
+const modalIndex = document.getElementById("image-index");
 
 const closeModalBtn = document.querySelector(".close");
 const showLessBtn = document.getElementById("showLess");
@@ -26,7 +27,7 @@ function displayImages(images) {
       imgItem.classList.add("img-item");
       imgItem.innerHTML = `<img src="${image.url}" alt="${image.category}">`;
       imgItem.querySelector("img").addEventListener("click", function () {
-        showModal(image.url, image?.date, image?.camera);
+        showModal(image.url, image?.date, image?.camera, image?.index);
       });
       gallery.appendChild(imgItem);
     }
@@ -49,7 +50,7 @@ function displayAllImages(images) {
     imgItem.classList.add("img-item");
     imgItem.innerHTML = `<img src="${image.url}" alt="${image.category}">`;
     imgItem.querySelector("img").addEventListener("click", function () {
-      showModal(image?.url, image?.date, image?.camera);
+      showModal(image?.url, image?.date, image?.camera, image?.index);
     });
     gallery.appendChild(imgItem);
   });
