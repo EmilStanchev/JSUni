@@ -11,14 +11,14 @@ function filterImages(category) {
     category === "all"
       ? images
       : images.filter((image) => image.category === category);
-  displayImages(filteredImages);
+  displayAllImages(filteredImages);
 }
 searchButton.addEventListener("click", function () {
   const selectedDate = document.getElementById("dateFilter").value;
 
   const filteredImagesByDate = filterImagesByDate(images, selectedDate);
   console.log(filteredImagesByDate);
-  displayImages(filteredImagesByDate);
+  displayAllImages(filteredImagesByDate);
 });
 
 filters.addEventListener("click", function (event) {
