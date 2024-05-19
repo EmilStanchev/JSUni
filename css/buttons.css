@@ -1,0 +1,41 @@
+.button-container {
+    display: flex;
+    text-align: center;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #333;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.button-container button:hover {
+    background-color: #fff;
+    color: #444;
+    border-color: #444;
+}
+#download-btn {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#download-btn:hover {
+    background-color: #45a049;
+}
