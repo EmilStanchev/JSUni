@@ -14,7 +14,6 @@ const maxImagesToShow = 6;
 
 function displayImages(images) {
   gallery.innerHTML = "";
-  console.log(images?.length);
   if (images?.length === 0) {
     const infoText = document.createElement("p");
     infoText.innerHTML = "There aren`t images for that filter";

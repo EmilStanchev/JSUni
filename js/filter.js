@@ -13,22 +13,21 @@ function filterImages(category) {
       : images.filter((image) => image.category === category);
   displayAllImages(filteredImages);
 }
-searchButton.addEventListener("click", function () {
+searchButton.addEventListener("click", () => {
   const selectedDate = document.getElementById("dateFilter").value;
 
   const filteredImagesByDate = filterImagesByDate(images, selectedDate);
-  console.log(filteredImagesByDate);
   displayAllImages(filteredImagesByDate);
 });
 
-filters.addEventListener("click", function (event) {
+filters.addEventListener("click", (event) => {
   if (event.target.classList.contains("filter-btn")) {
     filterList.style.display =
       filterList.style.display === "flex" ? "none" : "flex";
   }
 });
 
-filterList.addEventListener("click", function (event) {
+filterList.addEventListener("click", (event) => {
   if (event.target.tagName === "LI" || event.target.tagName === "I") {
     const category =
       event.target.getAttribute("data-filter") ||

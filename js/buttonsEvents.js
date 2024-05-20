@@ -7,7 +7,7 @@ showMoreBtn.addEventListener("click", () => {
   showMoreBtn.style.display === "none" ? "block" : "none";
 });
 
-showLessBtn.addEventListener("click", function () {
+showLessBtn.addEventListener("click", () => {
   displayImages(images.slice(0, maxImagesToShow));
   showMoreBtn.style.display = "block";
   showLessBtn.style.display = "none";
@@ -21,7 +21,7 @@ function showModal(url, date, camera, index) {
   modalCamera.textContent = `Camera: ${camera}`;
 }
 
-closeModalBtn.addEventListener("click", function () {
+closeModalBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
@@ -31,6 +31,7 @@ function updateModal(image) {
   modalDate.textContent = `Date: ${image.date}`;
   modalCamera.textContent = `Camera: ${image.camera}`;
 }
+
 rightArrow.addEventListener("click", () => {
   let currentIndex = Number(modalIndex.textContent);
   console.log(currentIndex + 1);
@@ -39,6 +40,6 @@ rightArrow.addEventListener("click", () => {
 });
 
 leftArrow.addEventListener("click", () => {
-  let currentIndex = modalIndex.textContent;
+  let currentIndex = Number(modalIndex.textContent);
   updateModal(images[currentIndex - 1]);
 });
