@@ -24,10 +24,15 @@ function displayImages(images) {
     if (index < maxImagesToShow) {
       const imgItem = document.createElement("div");
       imgItem.classList.add("img-item");
-      imgItem.innerHTML = `<img src="${image.url}" alt="${image.category}">`;
-      imgItem.querySelector("img").addEventListener("click", function () {
-        showModal(image.url, image?.date, image?.camera, image?.index);
+
+      const img = document.createElement("img");
+      img.src = image.url;
+      img.alt = image.category;
+      img.addEventListener("click", function () {
+        showModal(image?.url, image?.date, image?.camera, image?.index);
       });
+
+      imgItem.appendChild(img);
       gallery.appendChild(imgItem);
     }
   });
@@ -47,10 +52,15 @@ function displayAllImages(images) {
   images?.forEach((image) => {
     const imgItem = document.createElement("div");
     imgItem.classList.add("img-item");
-    imgItem.innerHTML = `<img src="${image.url}" alt="${image.category}">`;
-    imgItem.querySelector("img").addEventListener("click", function () {
+
+    const img = document.createElement("img");
+    img.src = image.url;
+    img.alt = image.category;
+    img.addEventListener("click", function () {
       showModal(image?.url, image?.date, image?.camera, image?.index);
     });
+
+    imgItem.appendChild(img);
     gallery.appendChild(imgItem);
   });
 
@@ -59,3 +69,15 @@ function displayAllImages(images) {
 }
 
 displayImages(images);
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    console.log(" i and j", i, j);
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+setInterval(() => {
+  shuffleArray(images);
+  displayImages(images);
+}, 120000);
