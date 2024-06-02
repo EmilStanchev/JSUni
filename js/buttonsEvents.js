@@ -13,12 +13,14 @@ showLessBtn.addEventListener("click", () => {
   showLessBtn.style.display = "none";
 });
 
-function showModal(url, date, camera, index) {
+function showModal(url, date, camera, index, category) {
+  console.log("it enters");
   modal.style.display = "flex";
   modalImg.src = url;
   modalIndex.textContent = index;
   modalDate.textContent = `Date: ${date}`;
   modalCamera.textContent = `Camera: ${camera}`;
+  modalCategory.textContent = `Category: ${category}`;
 }
 
 closeModalBtn.addEventListener("click", () => {
@@ -30,6 +32,7 @@ function updateModal(image) {
   modalImg.src = image.url;
   modalDate.textContent = `Date: ${image.date}`;
   modalCamera.textContent = `Camera: ${image.camera}`;
+  modalCategory.textContent = `Category: ${image?.category}`;
 }
 
 rightArrow.addEventListener("click", () => {

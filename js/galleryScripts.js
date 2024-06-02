@@ -5,6 +5,7 @@ const modalImg = document.getElementById("modal-img");
 const modalDate = document.getElementById("modal-date");
 const modalCamera = document.getElementById("modal-camera");
 const modalIndex = document.getElementById("image-index");
+const modalCategory = document.getElementById("modal-category");
 
 const closeModalBtn = document.querySelector(".close");
 const showLessBtn = document.getElementById("showLess");
@@ -29,7 +30,13 @@ function displayImages(images) {
       img.src = image.url;
       img.alt = image.category;
       img.addEventListener("click", function () {
-        showModal(image?.url, image?.date, image?.camera, image?.index);
+        showModal(
+          image?.url,
+          image?.date,
+          image?.camera,
+          image?.index,
+          image?.category
+        );
       });
 
       imgItem.appendChild(img);
@@ -57,7 +64,13 @@ function displayAllImages(images) {
     img.src = image.url;
     img.alt = image.category;
     img.addEventListener("click", function () {
-      showModal(image?.url, image?.date, image?.camera, image?.index);
+      showModal(
+        image?.url,
+        image?.date,
+        image?.camera,
+        image?.index,
+        image?.category
+      );
     });
 
     imgItem.appendChild(img);
